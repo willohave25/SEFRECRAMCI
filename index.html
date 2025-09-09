@@ -44,6 +44,15 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: #ff6b35;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
 
         .nav-menu {
@@ -67,7 +76,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(44, 90, 160, 0.8), rgba(30, 61, 114, 0.8)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="100%" height="100%"/><rect fill="%232c5aa0" x="0" y="600" width="1200" height="200"/><rect fill="%23ff6b35" x="100" y="200" width="300" height="300"/><text x="250" y="350" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Bureau Direction</text></svg>');
+                        url('assets/images/bureau-direction.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -157,12 +166,28 @@
 
         .service-image {
             height: 200px;
-            background: linear-gradient(45deg, #2c5aa0, #ff6b35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(44, 90, 160, 0.8), rgba(255, 107, 53, 0.8));
+        }
+
+        .service-emoji {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-size: 3rem;
+            z-index: 2;
         }
 
         .service-content {
@@ -233,7 +258,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
@@ -243,7 +269,8 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #ff6b35;
         }
@@ -359,7 +386,10 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <div class="logo">SEFRECRAMCI</div>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="SEFRECRAMCI Logo" class="logo-img">
+                SEFRECRAMCI
+            </div>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#accueil">Accueil</a></li>
@@ -391,7 +421,9 @@
             <div class="services-grid">
                 <!-- BTP -->
                 <div class="service-card fade-in">
-                    <div class="service-image">🏗️</div>
+                    <div class="service-image" style="background-image: url('assets/images/construction-service.jpg');">
+                        <div class="service-emoji">🏗️</div>
+                    </div>
                     <div class="service-content">
                         <h3>BTP en Côte d'Ivoire – Construction et Travaux Publics de Qualité</h3>
                         <h4>Votre partenaire pour des projets durables et sur mesure</h4>
@@ -401,7 +433,9 @@
 
                 <!-- Plomberie/Froid/Électricité -->
                 <div class="service-card fade-in">
-                    <div class="service-image">⚡</div>
+                    <div class="service-image" style="background-image: url('assets/images/electricien-service.jpg');">
+                        <div class="service-emoji">⚡</div>
+                    </div>
                     <div class="service-content">
                         <h3>Plomberie, Climatisation et Électricité en Côte d'Ivoire</h3>
                         <h4>Des installations fiables pour votre confort et votre sécurité</h4>
@@ -411,7 +445,9 @@
 
                 <!-- Carrosserie -->
                 <div class="service-card fade-in">
-                    <div class="service-image">🚗</div>
+                    <div class="service-image" style="background-image: url('assets/images/btp-chantier.jpg');">
+                        <div class="service-emoji">🚗</div>
+                    </div>
                     <div class="service-content">
                         <h3>Carrosserie et Réparation Automobile en Côte d'Ivoire</h3>
                         <h4>Redonnez éclat et sécurité à vos véhicules</h4>
@@ -492,7 +528,7 @@
                         </div>
                         <div class="form-group">
                             <label for="service">Service demandé</label>
-                            <select id="service" name="service" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <select id="service" name="service" required>
                                 <option value="">Sélectionnez un service</option>
                                 <option value="btp">BTP - Construction</option>
                                 <option value="plomberie">Plomberie/Électricité/Climatisation</option>
