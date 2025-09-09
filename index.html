@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEFRECRAMCI - Entreprise BTP Côte d'Ivoire | Construction & Travaux Publics</title>
+    <meta name="description" content="Entreprise de BTP en Côte d'Ivoire : construction, plomberie, électricité, carrosserie. Solutions professionnelles de qualité pour vos projets.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 90, 160, 0.8), rgba(30, 61, 114, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="100%" height="100%"/><rect fill="%232c5aa0" x="0" y="600" width="1200" height="200"/><rect fill="%23ff6b35" x="100" y="200" width="300" height="300"/><text x="250" y="350" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Bureau Direction</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #e55a2e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, #2c5aa0, #ff6b35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .service-content h4 {
+            font-size: 1.2rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ff6b35;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            color: #ff6b35;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .submit-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #e55a2e;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .testimonial h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3d72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-credit {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">SEFRECRAMCI</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#avis">Avis</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content fade-in">
+            <h1>SEFRECRAMCI</h1>
+            <p>Votre partenaire de confiance en Côte d'Ivoire pour tous vos projets de construction, plomberie, électricité et carrosserie</p>
+            <a href="#contact" class="cta-button">Demander un Devis</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nos Services</h2>
+                <p>Excellence et expertise dans tous nos domaines d'intervention</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- BTP -->
+                <div class="service-card fade-in">
+                    <div class="service-image">🏗️</div>
+                    <div class="service-content">
+                        <h3>BTP en Côte d'Ivoire – Construction et Travaux Publics de Qualité</h3>
+                        <h4>Votre partenaire pour des projets durables et sur mesure</h4>
+                        <p>Notre entreprise de Bâtiment et Travaux Publics (BTP) en Côte d'Ivoire réalise vos projets de construction avec expertise et rigueur. De la conception à la livraison, nous intervenons sur les chantiers résidentiels, commerciaux et publics : maisons, immeubles, routes, ouvrages d'art… Nous garantissons des réalisations solides, esthétiques et conformes aux normes, dans le respect des délais et du budget.</p>
+                    </div>
+                </div>
+
+                <!-- Plomberie/Froid/Électricité -->
+                <div class="service-card fade-in">
+                    <div class="service-image">⚡</div>
+                    <div class="service-content">
+                        <h3>Plomberie, Climatisation et Électricité en Côte d'Ivoire</h3>
+                        <h4>Des installations fiables pour votre confort et votre sécurité</h4>
+                        <p>Spécialistes en plomberie, froid et électricité en Côte d'Ivoire, nous assurons l'installation, la maintenance et la réparation de vos équipements. Que ce soit pour un logement, un commerce ou un site industriel, nous proposons des solutions modernes, économiques et conformes aux normes de sécurité. Intervention rapide, travail soigné et durabilité garantis.</p>
+                    </div>
+                </div>
+
+                <!-- Carrosserie -->
+                <div class="service-card fade-in">
+                    <div class="service-image">🚗</div>
+                    <div class="service-content">
+                        <h3>Carrosserie et Réparation Automobile en Côte d'Ivoire</h3>
+                        <h4>Redonnez éclat et sécurité à vos véhicules</h4>
+                        <p>Notre atelier de carrosserie prend soin de vos véhicules : voitures, camions, engins de chantier. Réparation de chocs, peinture, débosselage, polissage… nous redonnons à votre véhicule son aspect d'origine tout en assurant sa sécurité. Grâce à des techniques modernes et des matériaux de qualité, nous garantissons un résultat impeccable et durable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="avis" class="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Avis de nos Clients</h2>
+                <p>La satisfaction de nos clients est notre priorité</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <h4>Olga Construction</h4>
+                    <div class="stars">★★★★★</div>
+                    <p>"Travail exceptionnel sur notre projet de construction. Équipe professionnelle, délais respectés et qualité au rendez-vous. Je recommande vivement SEFRECRAMCI pour tous vos projets BTP."</p>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <h4>Nanterre BTP</h4>
+                    <div class="stars">★★★★★</div>
+                    <p>"Collaboration excellente avec SEFRECRAMCI. Leur expertise en électricité et plomberie nous a permis de mener à bien nos chantiers. Partenaire de confiance en Côte d'Ivoire."</p>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <h4>Garage Central Abidjan</h4>
+                    <div class="stars">★★★★★</div>
+                    <p>"Service de carrosserie impeccable ! Réparation de notre flotte de véhicules avec un résultat remarquable. Personnel compétent et tarifs compétitifs. Très satisfait du service."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>Contactez-nous</h2>
+                    <div class="contact-item">
+                        <strong>Directeur :</strong> COULIBALY Souleymane
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email :</strong> sefrecramci.225@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>Téléphone France :</strong> +33 609 773 406
+                    </div>
+                    <div class="contact-item">
+                        <strong>Téléphone Côte d'Ivoire :</strong> +225 07 97 40 69 12
+                    </div>
+                    <div class="contact-item">
+                        <strong>Localisation :</strong> Côte d'Ivoire
+                    </div>
+                </div>
+
+                <div class="contact-form fade-in">
+                    <h3 style="color: #2c5aa0; margin-bottom: 1.5rem;">Demande de Devis</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="nom">Nom complet</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service demandé</label>
+                            <select id="service" name="service" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="btp">BTP - Construction</option>
+                                <option value="plomberie">Plomberie/Électricité/Climatisation</option>
+                                <option value="carrosserie">Carrosserie Automobile</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre projet</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer la Demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SEFRECRAMCI - Tous droits réservés</p>
+            <p class="footer-credit">Site internet by W2K-DIGITAL</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous contacterons rapidement.');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
